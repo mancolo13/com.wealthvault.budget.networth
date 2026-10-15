@@ -60,20 +60,23 @@ class _Tab1ScreenState extends State<Tab1Screen> {
                   const Text('Total Valuation', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
                   const SizedBox(height: 16),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: () => setState(() => _counter += 5),
-                        icon: const Icon(Icons.bolt),
-                        label: Text('Add Asset (\$_counter)'),
-                        style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, foregroundColor: Colors.black),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () => setState(() => _counter += 5),
+                          icon: const Icon(Icons.bolt),
+                          label: FittedBox(fit: BoxFit.scaleDown, child: Text('Add Asset (\$_counter)')),
+                          style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, foregroundColor: Colors.black),
+                        ),
                       ),
                       const SizedBox(width: 12),
-                      OutlinedButton.icon(
-                        onPressed: () => setState(() => _active = !_active),
-                        icon: Icon(_active ? Icons.check_circle : Icons.pause),
-                        label: Text(_active ? 'Active' : 'Paused'),
-                        style: OutlinedButton.styleFrom(foregroundColor: AppTheme.primary),
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => setState(() => _active = !_active),
+                          icon: Icon(_active ? Icons.check_circle : Icons.pause),
+                          label: FittedBox(fit: BoxFit.scaleDown, child: Text(_active ? 'Active' : 'Paused')),
+                          style: OutlinedButton.styleFrom(foregroundColor: AppTheme.primary),
+                        ),
                       ),
                     ],
                   ),
